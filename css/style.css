@@ -1,0 +1,96 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #5ae6f9;
+    padding: 20px;
+}
+
+/* Fuente llamativa para el título */
+.fancy-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #002f5f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Fuente minimalista para subtítulos */
+.subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #003b6f;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+/* Cards con gradiente alternando */
+.gradient-a {
+    background: linear-gradient(135deg, #ffffff, #93d9f7);
+    border: 2px solid #003b6f;
+}
+
+.gradient-b {
+    background: linear-gradient(135deg, #93d9f7, #ffffff);
+    border: 2px solid #001f3f;
+}
+
+.card {
+    font-family: 'Poppins', sans-serif;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    
+}
+
+/* Contenedor de audio */
+.audio-container {
+    margin-top: 20px;
+    padding: 20px;
+    background: #e0f7fa;
+    border-radius: 12px;
+    border: 2px solid #003b6f;
+}
+
+/* Controles de audio */
+audio {
+    width: 100%;
+    outline: none;
+}
+
+/* Espaciado extra entre los tiempos y el timeline */
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display {
+    margin-right: 15px;
+    color: white !important;
+}
+
+audio::-webkit-media-controls-panel {
+    background: #003b6f;
+    border-radius: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button,
+audio::-webkit-media-controls-mute-button {
+    background-color: white !important;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+/* Tres puntos del control de audio en blanco */
+audio::-webkit-media-controls-overflow-button {
+    filter: invert(1);
+}
+
+audio::-webkit-media-controls-timeline {
+    background: white;
+    border-radius: 5px;
+    margin: 0 10px;
+    visibility: hidden;
+}
+
+audio::-webkit-media-controls-volume-slider {
+    background: white;
+    border-radius: 5px;
+}
