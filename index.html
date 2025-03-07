@@ -34,17 +34,18 @@
         <p id="error-message" class="text-danger mt-3" style="display: none;">Usuario o contraseña incorrectos</p>
     </div>
 <!-- test -->
-    <script>
-        function checkLogin() {
-            var user = document.getElementById("username").value;
-            var pass = document.getElementById("password").value;
-            
-            if (user === "mariona" && pass === "1703") { // Cambia esto por tu usuario y contraseña
-                window.location.href = "./html/audios.html";
-            } else {
-                document.getElementById("error-message").style.display = "block";
-            }
+<script>
+    function checkLogin() {
+        var user = document.getElementById("username").value.toUpperCase(); // Convertir a mayúsculas
+        var pass = document.getElementById("password").value;
+        
+        if (user === "MARIONA" && pass === "1703") { // Usuario en mayúsculas
+            window.location.href = "./html/audios.html";
+        } else {
+            document.getElementById("error-message").style.display = "block";
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
