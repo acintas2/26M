@@ -1,9 +1,27 @@
+/* body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #5ae6f9;
+    padding: 20px;
+} */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column; /* Stackea el contenido en columna */
     font-family: 'Poppins', sans-serif;
     background-color: #5ae6f9;
     padding: 20px;
 }
-
+.body-class{
+    background: url(../imgs/lightblue_bg.jpg);
+    background-repeat: no-repeat center center;
+    background-size: cover;
+    background-attachment: scroll;
+}
 /* Fuente llamativa para el título */
 .fancy-title {
     font-family: 'Poppins', sans-serif;
@@ -25,12 +43,15 @@ body {
 
 /* Cards con gradiente alternando */
 .gradient-a {
-    background: linear-gradient(135deg, #ffffff, #93d9f7);
-    border: 2px solid #003b6f;
-}
+    background: linear-gradient(135deg, #ffffff, #cbeffd);
+    /* Blanco que funde en un celeste pastel suave */
+    
+    
 
+  }
+  
 .gradient-b {
-    background: linear-gradient(135deg, #93d9f7, #ffffff);
+    background: linear-gradient(135deg, #cbeffd, #ffffff);
     border: 2px solid #001f3f;
 }
 
@@ -40,10 +61,8 @@ body {
     padding: 15px;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: left;
-    
 }
 
-/* Contenedor de audio */
 .audio-container {
     margin-top: 20px;
     padding: 20px;
@@ -52,19 +71,33 @@ body {
     border: 2px solid #003b6f;
 }
 
+/* H4 para el nombre / "Descubre quién hay detrás" */
+.card h4 {
+    margin-bottom: 10px;
+}
+
+/* Botón para mostrar/ocultar nombre */
+.toggle-name {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    border: 2px solid #003b6f;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    /* Ajusta más estilos a tu gusto */
+}
+
+
 /* Controles de audio */
 audio {
     width: 100%;
     outline: none;
 }
 
-/* Espaciado extra entre los tiempos y el timeline */
-audio::-webkit-media-controls-time-remaining-display,
-audio::-webkit-media-controls-current-time-display {
-    margin-right: 15px;
-    color: white !important;
-}
-
+/* Ajustes de los controles en navegadores WebKit */
 audio::-webkit-media-controls-panel {
     background: #003b6f;
     border-radius: 10px;
@@ -83,14 +116,39 @@ audio::-webkit-media-controls-overflow-button {
     filter: invert(1);
 }
 
+/*
+  Anteriormente se ocultaba la barra de progreso (timeline). 
+  Ahora la dejamos visible para que sea más usable en móvil.
+*/
 audio::-webkit-media-controls-timeline {
     background: white;
     border-radius: 5px;
     margin: 0 10px;
-    visibility: hidden;
 }
 
 audio::-webkit-media-controls-volume-slider {
     background: white;
     border-radius: 5px;
+}
+
+/* 
+  Ajustes responsivos: 
+  - Aseguramos que los audios y el diseño funcionen bien en pantallas pequeñas
+*/
+@media (max-width: 768px) {
+    .card {
+        padding: 10px;
+    }
+    .toggle-name {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+    /* Tamaño del título un poco más pequeño en móvil */
+    .fancy-title {
+        font-size: 24px;
+    }
+}
+
+.main-content {
+    flex: 1; /* Hace que este contenedor ocupe todo el espacio disponible */
 }
