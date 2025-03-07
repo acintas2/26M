@@ -38,14 +38,16 @@
     function checkLogin() {
         var user = document.getElementById("username").value.toUpperCase(); // Convertir a mayúsculas
         var pass = document.getElementById("password").value;
-        
-        if (user === "MARIONA" && pass === "1703") { // Usuario en mayúsculas
-            window.location.href = "./html/audios.html";
+
+        if (user === "MARIONA" && pass === "1703") { // Validación sin case-sensitive
+            sessionStorage.setItem("authenticated", "true"); // Guardamos el acceso en LocalStorage
+            window.location.href = "./html/audios.html"; // Redirigir a la página de audios
         } else {
             document.getElementById("error-message").style.display = "block";
         }
     }
 </script>
+
 
 </body>
 </html>
