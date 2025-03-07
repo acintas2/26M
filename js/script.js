@@ -1,24 +1,58 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // 1) Inyectamos un pequeño bloque de CSS para la animación (si prefieres, muévelo a tu style.css)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        /* Oculta la card y la desplaza un poco hacia abajo */
+        .card-hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        /* Al hacerse visible, vuelve a su posición y opacidad 100% */
+        .card-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
+
+    // 2) Array de audios
     const audios = [
         { nombre: "Agustin", archivo: "../audios/audio1.mp3" },
         { nombre: "Papa", archivo: "../audios/audio2.mp3" },
         { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
         { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
-        // Más audios si los tienes...
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
+        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        // Más audios...
     ];
 
     const audioList = document.getElementById("audioList");
     let currentAudio = null;
     let currentAudioElement = null;
 
+    // 3) Generamos dinámicamente las cards
     audios.forEach((audio, index) => {
         const gradientClass = index % 2 === 0 ? "gradient-a" : "gradient-b";
 
-        // Creamos el contenedor de la card
         const cardCol = document.createElement("div");
         cardCol.classList.add("col-12", "mb-4");
 
-        // Estructura HTML de la card
+        // Contenido de la card
         cardCol.innerHTML = `
             <div class="card shadow-sm rounded p-3 ${gradientClass}" id="card-${index}">
                 <div class="d-flex justify-content-between align-items-center">
@@ -41,15 +75,15 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        // Referencia a la card
+        // Referencia principal a la card
         const card = cardCol.querySelector(`#card-${index}`);
+        // Inicialmente la card estará oculta con animación
+        card.classList.add("card-hidden");
 
-        // Evento de click en la card para mostrar/ocultar el audio
+        // Lógica de abrir/cerrar audio
         card.addEventListener("click", function (e) {
-            // Evitamos que se abra/cierre la card si:
-            // - el click viene del botón toggle-name (ojo)
-            // - o si el click viene de un elemento <audio>
-            //   (p.ej. Play, barra de progreso...) para no cerrarse en Safari
+            // Evita que al hacer click en el botón (ojo) o en el audio
+            // se abra/cierre la card (especialmente Safari)
             if (e.target.closest('.toggle-name') || e.target.closest('audio')) {
                 return;
             }
@@ -66,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            // Abrimos/cerramos el audio actual
+            // Alternar la visibilidad de este audio
             if (audioContainer.style.display === "none" || audioContainer.style.display === "") {
                 audioContainer.style.display = "block";
                 currentAudio = audioContainer;
@@ -80,11 +114,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Evento para mostrar/ocultar el nombre en el h4 y cambiar el icono
+        // Lógica de mostrar/ocultar el nombre con el botón del “ojo”
         const toggleNameBtn = cardCol.querySelector(".toggle-name");
         toggleNameBtn.addEventListener("click", function (e) {
-            // Evitamos que el click en el botón “ojo” cierre la card
-            e.stopPropagation();
+            e.stopPropagation(); // evita que se cierre la card
 
             const nameElement = document.getElementById(`audio-name-${index}`);
             const icon = this.querySelector("i");
@@ -102,4 +135,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
         audioList.appendChild(cardCol);
     });
+
+    // 4) Configuramos IntersectionObserver para que cada card se haga visible al aparecer en pantalla
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // Si la card está a la vista, le añadimos "card-visible"
+                entry.target.classList.add("card-visible");
+                // Dejar de observar esa card, para no volver a animarla cada vez que sale/entra
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    // Observar cada card con clase “card” y no “cardCol” (para asegurarnos de observar el elemento exacto)
+    const allCards = document.querySelectorAll(".card.shadow-sm");
+    allCards.forEach((card) => observer.observe(card));
 });

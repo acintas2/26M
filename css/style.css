@@ -45,7 +45,7 @@ body {
 .gradient-a {
     background: linear-gradient(135deg, #ffffff, #cbeffd);
     /* Blanco que funde en un celeste pastel suave */
-    
+    border: 2px solid #001f3f;
     
 
   }
