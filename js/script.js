@@ -4,15 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Papa", archivo: "../audios/audio2.mp3" },
         { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
         { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
-        { nombre: "Francesc", archivo: "../audios/audio2.mp3" },
-        { nombre: "Mama", archivo: "../audios/audio3.mp3" },
-        { nombre: "Roberto", archivo: "../audios/audio1.mp3" },
-        { nombre: "Jordina", archivo: "../audios/audio2.mp3" },
-        { nombre: "Carlota Sureda", archivo: "../audios/audio3.mp3" },
-        { nombre: "Paula Perez", archivo: "../audios/audio1.mp3" },
-        { nombre: "Ivan Cazorla", archivo: "../audios/audio2.mp3" },
-        { nombre: "Arnau Moreno", archivo: "../audios/audio3.mp3" },
-        // ... etc ...
+        // Más audios si los tienes...
     ];
 
     const audioList = document.getElementById("audioList");
@@ -26,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const cardCol = document.createElement("div");
         cardCol.classList.add("col-12", "mb-4");
 
-        // Usamos un contenedor d-flex de Bootstrap para colocar el título a la izquierda y el botón a la derecha
+        // Estructura HTML de la card
         cardCol.innerHTML = `
             <div class="card shadow-sm rounded p-3 ${gradientClass}" id="card-${index}">
                 <div class="d-flex justify-content-between align-items-center">
@@ -49,15 +41,23 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
         `;
 
-        // Añadimos el evento de click en la card para mostrar/ocultar el audio
+        // Referencia a la card
         const card = cardCol.querySelector(`#card-${index}`);
+
+        // Evento de click en la card para mostrar/ocultar el audio
         card.addEventListener("click", function (e) {
-            // Evitamos que al hacer clic en el botón toggle se abra/cierre el audio
-            if (e.target.closest('.toggle-name')) return;
+            // Evitamos que se abra/cierre la card si:
+            // - el click viene del botón toggle-name (ojo)
+            // - o si el click viene de un elemento <audio>
+            //   (p.ej. Play, barra de progreso...) para no cerrarse en Safari
+            if (e.target.closest('.toggle-name') || e.target.closest('audio')) {
+                return;
+            }
 
             const audioContainer = document.getElementById(`audio-container-${index}`);
             const audioElement = document.getElementById(`audio-${index}`);
 
+            // Si hay un audio abierto, lo cerramos antes de abrir otro
             if (currentAudio && currentAudio !== audioContainer) {
                 currentAudio.style.display = "none";
                 if (currentAudioElement) {
@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
+            // Abrimos/cerramos el audio actual
             if (audioContainer.style.display === "none" || audioContainer.style.display === "") {
                 audioContainer.style.display = "block";
                 currentAudio = audioContainer;
@@ -82,7 +83,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // Evento para mostrar/ocultar el nombre en el h4 y cambiar el icono
         const toggleNameBtn = cardCol.querySelector(".toggle-name");
         toggleNameBtn.addEventListener("click", function (e) {
-            e.stopPropagation(); // Evitamos que abra/cierre el audio
+            // Evitamos que el click en el botón “ojo” cierre la card
+            e.stopPropagation();
 
             const nameElement = document.getElementById(`audio-name-${index}`);
             const icon = this.querySelector("i");

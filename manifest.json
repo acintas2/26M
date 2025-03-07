@@ -2,7 +2,7 @@
     "name": "Los 26 de Mariona",
     "short_name": "M26",
     "description": "Los 26 de Mariona - Audios Especiales",
-    "start_url": "/26M/index.html",
+    "start_url": "./index.html",
     "display": "standalone",
     "background_color": "#5ae6f9",
     "theme_color": "#002f5f",
