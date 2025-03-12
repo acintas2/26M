@@ -18,10 +18,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2) Array de audios
     const audios = [
-        { nombre: "Agustin", archivo: "../audios/audio1.mp3" },
-        { nombre: "Papa", archivo: "../audios/audio2.mp3" },
-        { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
-        { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
+        { nombre: "Agustin Cintas", archivo: "../audios/audio1.mp3" },
+        { nombre: "Gloria López", archivo: "../audios/gloria.mp3" },
+        { nombre: "Mama", archivo: "../audios/mama.mp3" },
+        { nombre: "Papa", archivo: "../audios/papa.mp3" },
         { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
         { nombre: "Oriol", archivo: "../audios/audio1.mp3" },
         { nombre: "Paula Clandestino", archivo: "../audios/audio3.mp3" },
