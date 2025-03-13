@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Mireia Petardos CM", archivo: "../audios/mireiapetardos.mp3" },
         { nombre: "Pedro Petardos CM", archivo: "../audios/pedropetardos.mp3" },
         { nombre: "Merche Petardos CM", archivo: "../audios/merchepetardos.mp3" },
+        { nombre: "Marta Balada", archivo: "../audios/balada.mp3" },
         // Más audios...
     ];
 
