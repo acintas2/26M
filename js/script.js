@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Noelia", archivo: "../audios/noelia.mp3" },
         { nombre: "Marc Petardos CM", archivo: "../audios/marcpetardos.mp3" },
         { nombre: "Adrián Carballo", archivo: "../audios/carballo.mp3" },
+        { nombre: "Oriol", archivo: "../audios/oriol.mp3" },
         // Más audios...
     ];
 
