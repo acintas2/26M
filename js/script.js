@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Pedro Petardos CM", archivo: "../audios/pedropetardos.mp3" },
         { nombre: "Merche Petardos CM", archivo: "../audios/merchepetardos.mp3" },
         { nombre: "Marta Balada", archivo: "../audios/balada.mp3" },
+        { nombre: "Noelia", archivo: "../audios/noelia.mp3" },
+        { nombre: "Marc Petardos CM", archivo: "../audios/marcpetardos.mp3" },
+        { nombre: "Adrián Carballo", archivo: "../audios/carballo.mp3" },
         // Más audios...
     ];
 
