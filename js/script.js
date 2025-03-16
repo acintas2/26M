@@ -49,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Paula", archivo: "../audios/paula.mp3" },
         { nombre: "Sabka", archivo: "../audios/sabka.mp3" },
         { nombre: "Tania Criado", archivo: "../audios/tania.mp3" },
+        { nombre: "Adai", archivo: "../audios/adai.mp3" },
+        { nombre: "Denise", archivo: "../audios/denise.mp3" },
+        { nombre: "Marta Andujar", archivo: "../audios/martaandujar.mp3" },
+        { nombre: "Paula Vivancos", archivo: "../audios/paulaviv.mp3" },
         // Más audios...
     ];
 
