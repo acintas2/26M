@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2) Array de audios
     const audios = [
-        { nombre: "Agustin Cintas", archivo: "../audios/audio1.mp3" },
+        { nombre: "Agustin Cintas", archivo: "../audios/cintas.mp3" },
         { nombre: "Gloria López", archivo: "../audios/gloria.mp3" },
         { nombre: "Mama", archivo: "../audios/mama.mp3" },
         { nombre: "Papa", archivo: "../audios/papa.mp3" },
@@ -32,6 +32,23 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Marc Petardos CM", archivo: "../audios/marcpetardos.mp3" },
         { nombre: "Adrián Carballo", archivo: "../audios/carballo.mp3" },
         { nombre: "Oriol", archivo: "../audios/oriol.mp3" },
+        { nombre: "Berta Molera", archivo: "../audios/bertamolera.mp3" },
+        { nombre: "Carlota i Quim", archivo: "../audios/carlotaquim.mp3" },
+        { nombre: "Ivan Cazorla", archivo: "../audios/cazorla.mp3" },
+        { nombre: "Claudia", archivo: "../audios/claudia.mp3" },
+        { nombre: "Ester Magescal", archivo: "../audios/estermagescal.mp3" },
+        { nombre: "Helena", archivo: "../audios/helena.mp3" },
+        { nombre: "Jordina", archivo: "../audios/jordina.mp3" },
+        { nombre: "Rubén Luque", archivo: "../audios/luque.mp3" },
+        { nombre: "Mar", archivo: "../audios/mar.mp3" },
+        { nombre: "Marta Magescal", archivo: "../audios/martamagescal.mp3" },
+        { nombre: "Mercè Magescal", archivo: "../audios/mercemagescal.mp3" },
+        { nombre: "Mireia Magescal", archivo: "../audios/mireiamagescal.mp3" },
+        { nombre: "Mire", archivo: "../audios/mireusa.mp3" },
+        { nombre: "Arnau Moreno", archivo: "../audios/moreno.mp3" },
+        { nombre: "Paula", archivo: "../audios/paula.mp3" },
+        { nombre: "Sabka", archivo: "../audios/sabka.mp3" },
+        { nombre: "Tania Criado", archivo: "../audios/tania.mp3" },
         // Más audios...
     ];
 
