@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { nombre: "Denise", archivo: "../audios/denise.mp3" },
         { nombre: "Mercè Magescal", archivo: "../audios/mercemagescal.mp3" },
         { nombre: "Francesc Cintas", archivo: "../audios/francesc.mp3" },
+        { nombre: "Nuria Fos", archivo: "../audios/nur.mp3" },
         { nombre: "Rubén Luque", archivo: "../audios/luque.mp3" },
         { nombre: "Gloria López", archivo: "../audios/gloria.mp3" },
         { nombre: "Ester Magescal", archivo: "../audios/estermagescal.mp3" },
